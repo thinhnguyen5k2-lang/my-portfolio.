@@ -2,30 +2,37 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyễn Xuân Thịnh - Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Bài 29 - Đèn Kéo Quân Pastel</title>
+    <style>
+        body { 
+            background: linear-gradient(135deg, #dcf0fa 0%, #fce2e8 100%); 
+            display: flex; justify-content: center; align-items: center; 
+            height: 100vh; perspective: 1200px; margin: 0; overflow: hidden;
+        }
+        .stage { width: 200px; height: 250px; position: relative; transform-style: preserve-3d; }
+        .den-keo-quan { width: 100%; height: 100%; position: absolute; transform-style: preserve-3d; animation: quay 15s linear infinite; }
+        .den-keo-quan:hover { animation-play-state: paused; cursor: pointer; }
+        .face { position: absolute; width: 200px; height: 250px; border: 5px solid white; box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-radius: 10px; overflow: hidden; background: white; }
+        .face img { width: 100%; height: 100%; object-fit: cover; }
+        .f1 { transform: rotateY(0deg) translateZ(180px); }
+        .f2 { transform: rotateY(60deg) translateZ(180px); }
+        .f3 { transform: rotateY(120deg) translateZ(180px); }
+        .f4 { transform: rotateY(180deg) translateZ(180px); }
+        .f5 { transform: rotateY(240deg) translateZ(180px); }
+        .f6 { transform: rotateY(300deg) translateZ(180px); }
+        @keyframes quay { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+    </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Trang chủ</a>
-        <a href="about.html">Giới thiệu</a>
-        <a href="contact.html">Liên hệ</a>
-    </nav>
-
-    <header>
-        <img src="./ảnh 2.jpg" alt="Avatar" style="width:150px; border-radius:50%; margin-bottom: 20px;">
-        <h1>Xin chào! Mình là Nguyễn Xuân Thịnh</h1>
-        <p>Full-stack Developer tương lai</p>
-    </header>
-
-    <section>
-        <h2>Dự án nổi bật</h2>
-        <div class="project">Todo List JS</div>
-        <div class="project">Weather App</div>
-        <div class="project">Portfolio này :)</div>
-    </section>
-
-    <script src="js/script.js"></script>
+    <div class="stage">
+        <div class="den-keo-quan">
+            <div class="face f1"><img src="anh 2.jpg"></div>
+            <div class="face f2"><img src="anh 2.jpg"></div>
+            <div class="face f3"><img src="anh 2.jpg"></div>
+            <div class="face f4"><img src="anh 2.jpg"></div>
+            <div class="face f5"><img src="anh 2.jpg"></div>
+            <div class="face f6"><img src="anh 2.jpg"></div>
+        </div>
+    </div>
 </body>
 </html>
