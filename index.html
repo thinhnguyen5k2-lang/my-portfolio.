@@ -2,37 +2,104 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bài 29 - Đèn Kéo Quân Pastel</title>
     <style>
+        /* Giao diện nền phối màu Gradient Xanh - Hồng nhạt */
         body { 
-            background: linear-gradient(135deg, #dcf0fa 0%, #fce2e8 100%); 
-            display: flex; justify-content: center; align-items: center; 
-            height: 100vh; perspective: 1200px; margin: 0; overflow: hidden;
+            background: linear-gradient(135deg, #49b1e4 0%, #e07790 100%); 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            perspective: 1200px; 
+            margin: 0;
+            overflow: hidden;
         }
-        .stage { width: 200px; height: 250px; position: relative; transform-style: preserve-3d; }
-        .den-keo-quan { width: 100%; height: 100%; position: absolute; transform-style: preserve-3d; animation: quay 15s linear infinite; }
-        .den-keo-quan:hover { animation-play-state: paused; cursor: pointer; }
-        .face { position: absolute; width: 200px; height: 250px; border: 5px solid white; box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-radius: 10px; overflow: hidden; background: white; }
-        .face img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Khung chứa đèn */
+        .stage { 
+            width: 200px; 
+            height: 250px; 
+            position: relative; 
+            transform-style: preserve-3d; 
+        }
+
+        /* Hiệu ứng đèn quay tròn */
+        .den-keo-quan { 
+            width: 100%; 
+            height: 100%; 
+            position: absolute; 
+            transform-style: preserve-3d; 
+            animation: quayVong 10s linear infinite; 
+        }
+
+        /* Dừng lại khi rê chuột vào */
+        .den-keo-quan:hover { 
+            animation-play-state: paused; 
+            cursor: pointer; 
+        }
+
+        /* Thiết lập 6 mặt của đèn với viền màu Hồng đậm hơn một chút */
+        .face { 
+            position: absolute; 
+            width: 200px; 
+            height: 250px; 
+            border: 5px solid #ffffff; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .face img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            /* Hiệu ứng làm ảnh trông mềm mại hơn */
+            filter: sepia(20%) brightness(105%);
+        }
+
+        /* Vị trí 6 mặt tạo thành hình lục giác */
+        /* Khoảng cách translateZ(180px) giúp các mặt sát nhau hơn */
         .f1 { transform: rotateY(0deg) translateZ(180px); }
         .f2 { transform: rotateY(60deg) translateZ(180px); }
         .f3 { transform: rotateY(120deg) translateZ(180px); }
         .f4 { transform: rotateY(180deg) translateZ(180px); }
         .f5 { transform: rotateY(240deg) translateZ(180px); }
         .f6 { transform: rotateY(300deg) translateZ(180px); }
-        @keyframes quay { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+
+        /* Hiệu ứng quay mượt mà */
+        @keyframes quayVong {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+
+        /* Thêm một chút trang trí bóng đổ dưới chân đèn */
+        .shadow {
+            position: absolute;
+            bottom: -50px;
+            width: 200px;
+            height: 40px;
+            background: rgba(0,0,0,0.05);
+            border-radius: 50%;
+            filter: blur(10px);
+        }
     </style>
 </head>
 <body>
+
     <div class="stage">
+        <div class="shadow"></div>
         <div class="den-keo-quan">
-            <div class="face f1"><img src="anh 2.jpg"></div>
-            <div class="face f2"><img src="anh 2.jpg"></div>
-            <div class="face f3"><img src="anh 2.jpg"></div>
-            <div class="face f4"><img src="anh 2.jpg"></div>
-            <div class="face f5"><img src="anh 2.jpg"></div>
-            <div class="face f6"><img src="anh 2.jpg"></div>
+            <div class="face f1"><img src="./ảnh1.jpg" alt="1"></div>
+            <div class="face f2"><img src="https://picsum.photos/id/102/200/250" alt="2"></div>
+            <div class="face f3"><img src="./ảnh 2.jpg" alt="3"></div>
+            <div class="face f4"><img src="https://picsum.photos/id/104/200/250" alt="4"></div>
+            <div class="face f5"><img src="./ảnh 3.jpg" alt="5"></div>
+            <div class="face f6"><img src="https://picsum.photos/id/111/200/250" alt="6"></div>
         </div>
     </div>
+
 </body>
 </html>
